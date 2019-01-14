@@ -19,11 +19,11 @@ leads_to_ephemeral = set()
 leads_to_eternal = set()
 
 
-def check_if_ephemeral(n, k):
+def check_ephemeral(n, k):
 
     if sum(map(int, str(n))) not in valid_sums[k-2]:
         sequence.clear()
-        return
+        return False
 
     elif n in leads_to_eternal or n in sequence:
 
@@ -32,7 +32,7 @@ def check_if_ephemeral(n, k):
                 leads_to_eternal.add(i)
 
         sequence.clear()
-        return
+        return False
 
     if n == 1:
         sequence.add(1)
@@ -44,24 +44,24 @@ def check_if_ephemeral(n, k):
                 leads_to_ephemeral.add(i)
 
         sequence.clear()
-        return
+        return True
 
     else:
         sequence.add(n)
-        return check_if_ephemeral(get_k_child(n, k), k)
+        return check_ephemeral(get_k_child(n, k), k)
 
 
 def count_ephemeral(n1, n2, k):
 
+    count = 0
+
     for i in range(n1, n2):
         n_digit_sum = sum(map(int, str(i)))
-
         if n_digit_sum in valid_sums[k - 2]:
-            check_if_ephemeral(i, k)
+            if check_ephemeral(i, k):
+                count += 1
 
-    out = [x for x in leads_to_ephemeral if n1<=x<n2]
-    out.sort()
-    return len(out)
+    return count
 
 
 start = time.time()
