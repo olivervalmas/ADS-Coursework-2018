@@ -1,6 +1,3 @@
-from random import shuffle
-
-
 def merge(left, right):
 
     result = []
@@ -52,29 +49,3 @@ def hybrid_sort(input_list):
     right_sorted = hybrid_sort(right)
 
     return merge(left_sorted, right_sorted)
-
-
-print(hybrid_sort([33,22,11,13,15,31,24,19,30,28,10,7,8,17,26,14,20,3,5,32,2,25,12,29,1,21,16,6,27,9,23,4,18]))
-
-n = 10
-
-while n > 0:
-
-    l = []
-
-    for i in range(2**15):
-        l.append(i+1)
-
-    shuffle(l)
-
-    print("Shuffled list: " + str(l))
-    print("Sorted list: " + str(hybrid_sort(l)))
-    l.sort()
-    l.reverse()
-    print("Expected list: " + str(l) + "\n")
-    if hybrid_sort(l) != l:
-        print("ERROR")
-
-    n -= 1
-
-
