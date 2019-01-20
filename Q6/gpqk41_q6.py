@@ -1,5 +1,6 @@
 from random import shuffle
 
+
 def merge(left, right):
 
     result = []
@@ -53,7 +54,7 @@ def hybrid_sort(input_list):
     return merge(left_sorted, right_sorted)
 
 
-#print(hybrid_sort([33,22,11,13,15,31,24,19,30,28,10,7,8,17,26,14,20,3,5,32,2,25,12,29,1,21,16,6,27,9,23,4,18]))
+print(hybrid_sort([33,22,11,13,15,31,24,19,30,28,10,7,8,17,26,14,20,3,5,32,2,25,12,29,1,21,16,6,27,9,23,4,18]))
 
 n = 10
 

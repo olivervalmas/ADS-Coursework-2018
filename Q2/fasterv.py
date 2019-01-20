@@ -58,6 +58,6 @@ def count_ephemeral(n1, n2, k):
     return count
 
 start = time.time()
-print(count_ephemeral(123456,654321, 4))
+print(count_ephemeral(1000,10000,3))
 end = time.time()
 print(end-start)

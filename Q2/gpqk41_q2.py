@@ -1,3 +1,6 @@
+import time
+
+
 def get_k_child(n, digit_powers):
 
     total = 0
@@ -47,3 +50,20 @@ def count_ephemeral(n1, n2, k):
             sequence.clear()
 
     return count
+
+
+start = time.time()
+print("Time for 1 to 10 million for k=2: " + str(count_ephemeral(1,10000000,2)))
+end = time.time()
+print(end-start)
+
+start = time.time()
+print("Time for 1 to 10 million for k=3: " + str(count_ephemeral(1,10000000,3)))
+end = time.time()
+print(end-start)
+
+start = time.time()
+print("Time for 1 to 10 million for k=4: " + str(count_ephemeral(1,10000000,4)))
+end = time.time()
+print(end-start)
+
